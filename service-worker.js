@@ -1,12 +1,11 @@
-
 const CACHE_NAME = 'sobrevive-v1';
 const ASSETS = [
   './',
   './index.html',
   './game.js',
   './manifest.json',
-  './icons/icon-192.png',
-  './icons/icon-512.png',
+  './icon-192.png', // corrigido
+  './icon-512.png', // corrigido
   // CDN libs to cache for offline
   'https://unpkg.com/react@18/umd/react.production.min.js',
   'https://unpkg.com/react-dom@18/umd/react-dom.production.min.js',
@@ -28,7 +27,7 @@ self.addEventListener('activate', (event) => {
 
 self.addEventListener('fetch', (event) => {
   const url = new URL(event.request.url);
-  // Network-first for same-origin, cache-first for CDN
+  // Network-first para mesma origem, cache-first para CDN
   if (url.origin === self.location.origin) {
     event.respondWith(
       fetch(event.request).then(resp => {
