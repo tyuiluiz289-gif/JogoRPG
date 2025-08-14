@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <link rel="manifest" href="manifest.json">
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="theme-color" content="#0b1220" />
@@ -23,28 +22,24 @@
 </head>
 <body>
   <div id="root" class="app"></div>
+
+  <!-- Registra o Service Worker -->
   <script>
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
-        navigator.serviceWorker.register('./service-worker.js');
+        navigator.serviceWorker.register('./service-worker.js')
+          .then(() => console.log('Service Worker registrado!'))
+          .catch(err => console.error('Erro no SW:', err));
       });
     }
   </script>
 
+  <!-- React + Babel via CDN -->
   <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
   <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+  <!-- Jogo -->
   <script type="text/babel" src="./game.js"></script>
 </body>
 </html>
-<link rel="manifest" href="./manifest.json" />
-<meta name="theme-color" content="#0b1220" />
-<script>
-  if ('serviceWorker' in navigator) {
-    window.addEventListener('load', () => {
-      navigator.serviceWorker.register('./service-worker.js')
-        .then(() => console.log('Service Worker registrado!'))
-        .catch(err => console.error('Erro no SW:', err));
-    });
-  }
-</script>
