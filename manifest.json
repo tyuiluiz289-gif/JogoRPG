@@ -2,22 +2,15 @@
   "name": "Sobrevivência – Jogo de Escolhas",
   "short_name": "Sobrevive",
   "description": "Jogo de escolhas offline-first",
-  "id": "/",
-  "start_url": ".",
+  "id": "./sobrevive-v1",          // <<< ID único do app
+  "start_url": "./?source=pwa",    // mantém dentro do repo no Pages
+  "scope": "./",                   // limita ao diretório raiz do projeto
   "display": "standalone",
   "orientation": "portrait",
   "background_color": "#0b1220",
   "theme_color": "#0b1220",
   "icons": [
-    {
-      "src": "icon-192.png",
-      "sizes": "192x192",
-      "type": "image/png"
-    },
-    {
-      "src": "icon-512.png",
-      "sizes": "512x512",
-      "type": "image/png"
-    }
+    { "src": "icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "icon-512.png", "sizes": "512x512", "type": "image/png" }
   ]
 }
